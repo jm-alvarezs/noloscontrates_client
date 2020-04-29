@@ -6,7 +6,7 @@ import Expediente from "./views/Expediente";
 import { Router } from "@reach/router";
 
 export default props => (
-    <Container fluid={true}>
+    <Container fluid={true} className="px-0">
         <Navbar />
         <Router>
             <Buscar path="/" />
