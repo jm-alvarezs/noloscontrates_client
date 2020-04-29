@@ -3,7 +3,7 @@ import { Card, Row, Col } from "react-bootstrap";
 import { Link } from "@reach/router";
 
 export default props => (
-    <Card className="p-4 shadow round">
+    <Card className="p-4 shadow round my-2">
         <Row>
             <Col>
                 <h4>{props.expediente.servidorPublico}</h4>

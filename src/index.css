@@ -15,3 +15,9 @@ code {
 .round {
   border-radius: 20px;
 }
+
+.background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

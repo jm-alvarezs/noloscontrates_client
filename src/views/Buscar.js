@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { Container, Row, Form, Button } from "react-bootstrap";
 import ExpedienteCard from "../components/expediente/ExpedienteCard";
+import { getFondos } from "../actions/fondoActions";
 import { setBusqueda, buscarExpedientes } from "../actions/expedientesActions";
 import { connect } from "react-redux";
 
 class Buscar extends Component {
+  componentDidMount() {
+    //this.props.getFondos();
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     if (event.currentTarget.checkValidity === false) {
@@ -16,20 +21,21 @@ class Buscar extends Component {
 
   renderExpedientes() {
     if (this.props.expedientes !== null)
-      return this.props.expedientes.map((expediente) => (
+      return this.props.expedientes.map((expediente, index) => (
         <ExpedienteCard
-          key={expediente.id_expediente}
+          key={index}
           expediente={expediente}
         />
       ));
   }
 
   render() {
-    const padding = this.props.expedientes === null ? 128 : 32;
+    const padding = this.props.expedientes === null ? "20vh" : 32;
+    const fondo = this.props.fondo;
     return (
       <Container fluid={true} className="px-0">
         <Row>
-          <Container style={{ paddingTop: padding, paddingBottom: padding }} className="px-0">
+          <Container style={{ paddingTop: padding, paddingBottom: padding, backgroundImage: `url(${fondo})` }} className="px-0 background-image">
             <h1>Consulta información sobre servidores públicos</h1>
             <h2>Toda la información es pública y transparente</h2>
             <Form onSubmit={(evt) => this.handleSubmit(evt)}>
@@ -49,7 +55,7 @@ class Buscar extends Component {
             </Container>          
         </Row>
         <Row>
-          <Container>
+          <Container className="px-0">
             {this.renderExpedientes()}
           </Container>
         </Row>
@@ -63,6 +69,6 @@ const mapStateToProps = (state) => ({
   busqueda: state.expedientes.busqueda,
 });
 
-export default connect(mapStateToProps, { setBusqueda, buscarExpedientes })(
+export default connect(mapStateToProps, { setBusqueda, buscarExpedientes, getFondos })(
   Buscar
 );

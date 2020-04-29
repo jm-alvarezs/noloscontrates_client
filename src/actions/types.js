@@ -4,3 +4,6 @@ export const EXPEDIENTE_RECIBIDO = 'EXPEDIENTE_RECIBIDO';
 export const SET_BUSQUEDA = 'SET_BUSQUEDA';
 //Noticias
 export const NOTICIAS_RECIBIDAS = 'NOTICIAS_RECIBIDAS';
+//Fondos
+export const FONDOS_RECIBIDOS = 'FONDOS_RECIBIDOS';
+export const SET_FONDO = 'SET_FONDO';
