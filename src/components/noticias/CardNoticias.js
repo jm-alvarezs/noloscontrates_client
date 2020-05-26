@@ -3,15 +3,15 @@ import { Card, Row, Col, Image } from "react-bootstrap";
 import { Link } from "@reach/router";
 
 export default props => (
-    <Card className="p-4 shadow round">
+    <Card className="p-4 shadow round my-3">
         <Row>
             <Col>
-                <Image src={props.noticia.image_src} className="mw-100 w-100" />
+                <Image src={props.noticia.image} className="mw-100 w-100" />
             </Col>
             <Col>
-                <h4>{props.noticia.titulo}</h4>
-                <h5>{props.noticia.fecha}</h5>
-                <h6>{props.noticia.ubicacion}</h6>                
+                <h4>{props.noticia.title}</h4>
+                <h5>{props.noticia.publishedAt}</h5>
+                <h6>{props.noticia.source.name}</h6>                
                 <Link className="text-cyan" to={props.noticia.url}>Ver Noticia</Link>
             </Col>
         </Row>

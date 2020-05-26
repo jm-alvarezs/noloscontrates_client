@@ -1,4 +1,4 @@
-import { SET_BUSQUEDA, EXPEDIENTES_RECIBIDOS, BUSCANDO } from "./types";
+import { SET_BUSQUEDA, EXPEDIENTES_RECIBIDOS, BUSCANDO, SET_EXPEDIENTE } from "./types";
 import BuscarService from "../services/BuscarService";
 
 export const setBusqueda = busqueda => dispatch => {
@@ -13,4 +13,8 @@ export const buscarExpedientes = busqueda => dispatch => {
     }).catch(error => {
         console.log(error);
     });
+};
+
+export const getExpediente = id_expediente => dispatch => {
+    dispatch({ type: SET_EXPEDIENTE, payload: id_expediente });
 };
