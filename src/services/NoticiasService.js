@@ -1,6 +1,6 @@
 import api from "./api";
 
-const route = "/noticias";
+const route = "/buscarNoticias";
 
 export default {
     getNoticias: busqueda => api.get(`${route}?busqueda=${busqueda}`)

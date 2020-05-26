@@ -1,4 +1,4 @@
-import { SET_BUSQUEDA, EXPEDIENTES_RECIBIDOS } from "./types";
+import { SET_BUSQUEDA, EXPEDIENTES_RECIBIDOS, BUSCANDO } from "./types";
 import BuscarService from "../services/BuscarService";
 
 export const setBusqueda = busqueda => dispatch => {
@@ -6,6 +6,7 @@ export const setBusqueda = busqueda => dispatch => {
 };
 
 export const buscarExpedientes = busqueda => dispatch => {
+    dispatch({ type: BUSCANDO });
     BuscarService.getExpedientes(busqueda).then(res => {
         const { registros } = res.data;
         dispatch({ type: EXPEDIENTES_RECIBIDOS, payload: registros });

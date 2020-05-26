@@ -19,7 +19,7 @@ class Expediente extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style={{ marginTop: 60 }}>
                 <h2>Expediente</h2>
                 <h2>Noticias</h2>
                 {this.renderNoticias()}

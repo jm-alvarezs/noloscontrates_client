@@ -14,7 +14,7 @@ export default props => (
             <Col>
                 <h6>{props.expediente.causa}</h6>
                 <p>{props.expediente.dependencia}</p>
-                <Link className="text-cyan" to={`/expediente${props.expediente.id_expediente}`}>Ver Expediente</Link>
+                <Link className="text-cyan" to={`/expediente/${props.expediente.id_expediente}`}>Ver Expediente</Link>
             </Col>
         </Row>
     </Card>
