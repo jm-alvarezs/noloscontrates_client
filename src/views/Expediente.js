@@ -44,11 +44,15 @@ class Expediente extends Component {
 
   render() {
     return (
-      <Container style={{ marginTop: 70 }} className="px-0">
-        <h2>Expediente</h2>
-        {this.renderExpediente()}
-        <h2>Noticias</h2>
-        {this.renderNoticias()}
+      <Container style={{ marginTop: 70 }} className="px-0 view">
+        <Container className="px-0">
+            <h2 className="text-white">Expediente</h2>
+            {this.renderExpediente()}
+            <h2 className="text-white">Noticias</h2>
+            <div style={{ overflowY: "scroll", maxHeight: "60vh", paddingBottom: 60 }}>
+                {this.renderNoticias()}
+            </div>            
+        </Container>
       </Container>
     );
   }

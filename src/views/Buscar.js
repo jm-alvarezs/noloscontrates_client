@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 
 class Buscar extends Component {
   componentDidMount() {
-    //this.props.getFondos();
+    this.props.getFondos(this.props.count);
   }
 
   componentDidUpdate() {
@@ -60,7 +60,7 @@ class Buscar extends Component {
     const padding = this.props.expedientes === null ? "20vh" : 32;
     const fondo = this.props.fondo;
     return (
-      <Container fluid={true} className="px-0" style={{ marginTop: 60 }}>
+      <Container fluid={true} className="px-0 view" style={{ marginTop: 60 }}>
         <Row>
           <Container
             style={{
@@ -70,10 +70,10 @@ class Buscar extends Component {
             }}
             className="px-0 background-image"
           >
-            <h1>Consulta información sobre servidores públicos</h1>
-            <h2>Toda la información es pública y transparente</h2>
+            <h1 className="text-white">Consulta información sobre servidores públicos</h1>
+            <h2 className="text-white">Toda la información es pública y transparente</h2>
             <Form onSubmit={(evt) => this.handleSubmit(evt)}>
-              <Form.Label className="d-block">Buscar un funcionario</Form.Label>
+              <Form.Label className="d-block text-white">Buscar un funcionario</Form.Label>
               <Form.Control
                 type="text"
                 name="busqueda"
@@ -96,7 +96,9 @@ class Buscar extends Component {
           </Container>
         </Row>
         <Row>
-          <Container className="px-0">{this.renderExpedientes()}</Container>
+          <Container className="px-0" id="busqueda" style={{ overflowY: "scroll", maxHeight: "80vh" }}>
+            {this.renderExpedientes()}
+          </Container>
         </Row>
         <Button id="notificaciones" onClick={() => this.crearAlerta()} disabled={this.props.expedientes === null}>
           <i className="fa fa-2x fa-bell"></i>
@@ -110,7 +112,8 @@ const mapStateToProps = (state) => ({
   expedientes: state.expedientes.expedientes,
   busqueda: state.expedientes.busqueda,
   alerta: state.alertas.alerta,
-  buscando: state.expedientes.buscando
+  buscando: state.expedientes.buscando,
+  count: state.fondos.count
 });
 
 export default connect(mapStateToProps, {

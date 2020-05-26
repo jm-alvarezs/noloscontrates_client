@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#busqueda::-webkit-scrollbar {
+  display: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -27,6 +31,49 @@ code {
   border-radius: 100px;
   width: 75px;
   height: 75px;
-  bottom: 25px;
+  bottom: 75px;
   right: 25px;
+}
+
+#busqueda {
+  padding-bottom: 140px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  background-color: #17191a;
+  text-align: center;
+  padding-top: 12px;
+  z-index: 2;
+}
+
+footer a {
+  color: #fff !important;
+}
+
+.view {
+  z-index: 1;
+  position: absolute;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#background {  
+  height: 100vh;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;  
+  z-index: -1;
+}
+
+#overlay {
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 0;
 }
