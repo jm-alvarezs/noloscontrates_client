@@ -21,7 +21,10 @@ class Buscar extends Component {
     if (this.props.alerta !== null) {
       this.props.modalComponent(
         "Agregar Alerta",
-        <AlertaForm alerta={this.props.alerta} />,
+        <AlertaForm
+          alerta={this.props.alerta}
+          modifier={this.props.setPropiedadAlerta}
+        />,
         () => this.props.crearAlerta(null),
         () => this.props.postAlerta(this.props.alerta)
       );
@@ -46,7 +49,7 @@ class Buscar extends Component {
         valorBusqueda: this.props.busqueda,
         valorPrevio: this.props.expedientes.length,
       });
-    }      
+    }
   }
 
   renderExpedientes() {
@@ -70,10 +73,16 @@ class Buscar extends Component {
             }}
             className="px-0 background-image"
           >
-            <h1 className="text-white">Consulta información sobre servidores públicos</h1>
-            <h2 className="text-white">Toda la información es pública y transparente</h2>
+            <h1 className="text-white">
+              Consulta información sobre servidores públicos
+            </h1>
+            <h2 className="text-white">
+              Toda la información es pública y transparente
+            </h2>
             <Form onSubmit={(evt) => this.handleSubmit(evt)}>
-              <Form.Label className="d-block text-white">Buscar un funcionario</Form.Label>
+              <Form.Label className="d-block text-white">
+                Buscar un funcionario
+              </Form.Label>
               <Form.Control
                 type="text"
                 name="busqueda"
@@ -90,17 +99,29 @@ class Buscar extends Component {
                 style={{ marginTop: -5, minWidth: "20%" }}
                 disabled={this.props.buscando}
               >
-                {this.props.buscando ? <Spinner animation="border" variant="light" /> : "Buscar"}
+                {this.props.buscando ? (
+                  <Spinner animation="border" variant="light" />
+                ) : (
+                  "Buscar"
+                )}
               </Button>
             </Form>
           </Container>
         </Row>
         <Row>
-          <Container className="px-0" id="busqueda" style={{ overflowY: "scroll", maxHeight: "80vh" }}>
+          <Container
+            className="px-0"
+            id="busqueda"
+            style={{ overflowY: "scroll", maxHeight: "80vh" }}
+          >
             {this.renderExpedientes()}
           </Container>
         </Row>
-        <Button id="notificaciones" onClick={() => this.crearAlerta()} disabled={this.props.expedientes === null}>
+        <Button
+          id="notificaciones"
+          onClick={() => this.crearAlerta()}
+          disabled={this.props.expedientes === null}
+        >
           <i className="fa fa-2x fa-bell"></i>
         </Button>
       </Container>
@@ -113,7 +134,7 @@ const mapStateToProps = (state) => ({
   busqueda: state.expedientes.busqueda,
   alerta: state.alertas.alerta,
   buscando: state.expedientes.buscando,
-  count: state.fondos.count
+  count: state.fondos.count,
 });
 
 export default connect(mapStateToProps, {
@@ -123,5 +144,5 @@ export default connect(mapStateToProps, {
   crearAlerta,
   modalComponent,
   buscarExpedientes,
-  setPropiedadAlerta,  
+  setPropiedadAlerta,
 })(Buscar);
