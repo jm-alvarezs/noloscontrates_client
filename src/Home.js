@@ -37,7 +37,7 @@ const Home = (props) => {
         <footer>
           <p>
             Una iniciativa de{" "}
-            <a href="https://redesquintopoder.org.mx" target="_blank">
+            <a href="https://redesquintopoder.org.mx" target="_blank" rel="noopener noreferrer">
               Redes Quinto Poder IDEA A.C.
             </a>
           </p>

@@ -16,6 +16,8 @@ export default (props) => (
       <Col>
         <h6>{props.expediente.causa}</h6>
         <p>{props.expediente.dependencia}</p>
+        <p>{props.expediente.autoridad}</p>
+        <p>{"$"}{props.expediente.monto}</p>
         {props.id_expediente ? (
           "Expediente: " + props.id_expediente
         ) : (
